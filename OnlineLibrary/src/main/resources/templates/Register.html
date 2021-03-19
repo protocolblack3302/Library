@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <title>Creative Colorlib SignUp Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- Custom Theme files -->
+    <link href="/css/registration.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- //Custom Theme files -->
+    <!-- web font -->
+    <link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+    <!-- //web font -->
+</head>
+<body>
+<!-- main -->
+<div class="main-w3layouts wrapper">
+    <h1>Library SignUp Form</h1>
+    <div class="main-agileinfo">
+        <div class="agileits-top">
+            <form th:action="@{/}"  method="post" th:object="${user}">
+                <input class="text" type="text"  placeholder="Username" required="" th:field="*{fullname}">
+                <br>
+                <span class="validationError" th:if="${#fields.hasErrors('fullname')}"
+                      th:errors="*{fullname}">ccNumberError</span>
+                <br>
+                <br>
+
+                <input class="text email" type="email" placeholder="Email" required="" th:field="*{email}">
+                <br>
+                <span class="validationError" th:if="${#fields.hasErrors('email')}"
+                      th:errors="*{email}">ccNumberError</span>
+                <br>
+                <br>
+                <input class="text" type="password" placeholder="Password" required="" th:field="*{password}">
+                <br>
+                <span class="validationError" th:if="${#fields.hasErrors('password')}"
+                      th:errors="*{password}">ccNumberError</span>
+                <br>
+                <br>
+
+                <div class="wthree-text">
+                    <label class="anim">
+                        <input type="checkbox" class="checkbox" required="">
+                        <span>I Agree To The Terms & Conditions</span>
+                    </label>
+                    <div class="clear"> </div>
+                </div>
+                <input type="submit" value="SIGNUP">
+            </form>
+            <p>Have an Account? <a href="/login"> Login!</a></p>
+        </div>
+    </div>
+    <!-- copyright -->
+    <div class="colorlibcopy-agile">
+        <p>© 2021 SignUpForm</p>
+    </div>
+    <!-- //copyright -->
+    <ul class="colorlib-bubbles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<!-- //main -->
+</body>
+</html>

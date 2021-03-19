@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <LINK REL=StyleSheet HREF="/css/search.css" TYPE="text/css">
+    <title>Title</title>
+</head>
+<body>
+
+<form class="form-wrapper" th:action="@{/search}" th:method="post" th:object="${searchObject}" >
+    <input type="text" th:field="*{searchString}"  required>
+    <input type="submit" value="go" id="submit">
+    <br>
+    <br>
+    <span class="validationError" th:if="${#fields.hasErrors('searchString')}"
+          th:errors="*{searchString}">ccNumberError</span>
+</form>
+
+<h3 align="center" th:text="${status}"></h3>
+
+
+</body>
+</html>
