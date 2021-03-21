@@ -2,14 +2,14 @@ package com.coderme.Library.Services;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Configuration;
 
 
-@Component
 @ConfigurationProperties(prefix = "filescanner")
 @Data
 public class DirectoryProp {
 
-    public static String directory="/Users/protocolblack/Downloads/book2";
+    public String directory;
+    public String encryptedPdfDirectory;
 
 }

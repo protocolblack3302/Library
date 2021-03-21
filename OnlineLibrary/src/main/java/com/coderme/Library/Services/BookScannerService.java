@@ -31,7 +31,7 @@ public class BookScannerService {
     public IntegrationFlow getIntegrationFlow() {
         return IntegrationFlows.from(fileReadingMessageSource, sourcePollingChannelAdapterSpec ->
                 sourcePollingChannelAdapterSpec
-                        .poller(Pollers.fixedDelay(500)))
+                        .poller(Pollers.fixedDelay(10)))
                 .filter(genericSelector)
                 .transform(transformer)
                 .handle(getMessageHandler())

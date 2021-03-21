@@ -10,7 +10,7 @@ import java.io.IOException;
 @Slf4j
 public class PdfUtilities {
     private final File sourceFile;
-    private final PDDocument document;
+    public final PDDocument document;
 
     public PdfUtilities(File sourceFile) throws IOException {
         this.sourceFile = sourceFile;

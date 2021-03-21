@@ -42,7 +42,7 @@ public class HomeController {
         user.setPassword(password);
         userRepository.save(user);
         authorityRepository.save(authority);
-        return "login";
+        return "redirect:/login";
     }
 
 

@@ -6,6 +6,7 @@ import lombok.Data;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.integration.core.GenericSelector;
 import org.springframework.integration.file.FileReadingMessageSource;
 import org.springframework.messaging.MessageHandler;
@@ -22,7 +23,7 @@ import java.io.File;
 public class Beans {
 
     private final RecentBookRepository repository;
-
+    private final DirectoryProp directoryProp;
 
 
     //password Encoder bean for security
@@ -36,7 +37,7 @@ public class Beans {
     //spring integration file adapter to scan directory
     @Bean
      FileReadingMessageSource fileInboundAdapter(){
-        File file = new File(DirectoryProp.directory);
+        File file = new File(directoryProp.getDirectory());
         FileReadingMessageSource fileReadingMessageSource = new FileReadingMessageSource();
         fileReadingMessageSource.setDirectory(file);
         return  fileReadingMessageSource;

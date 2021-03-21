@@ -1,14 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Database</title>
 </head>
 <body>
 
 <ul>
     <li th:each="book : ${books}">
-        <h3 th:text="${book.bookTitle}">placeholder</h3>
+        <h4 th:text="${book.bookTitle}">placeholder</h4>
+        <p th:text="'author :' +  ${book.author}">placeholder</p>
+        <p th:text=" 'pages : '  +  ${book.pages}">placeholder</p>
+        <p th:text="'version : ' +  ${book.version}">placeholder</p>
+    <form th:action="@{/download}" method="GET">
+            <input class="download-link" type="hidden" name="link" th:value="${book.getLink()}">
+            <input type="submit" value="Download">
+    </form>
+
+        <p>Password is <<span style="color:blue">full name of user</span> ></p>
+
 
     </li>
 </ul>
